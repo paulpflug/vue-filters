@@ -1,11 +1,11 @@
 # vue-filters
 
-A collection of filters for vue.
+A collection of filters for vue.  
 Designed for [**webpack**](https://webpack.github.io/) workflows.
 
 ## Policy
 
-all sorts of filters can be submitted. There will be no removes because of deprecation. If the API of a filter changes the name has to change.
+all sorts of filters can be submitted. There will be no removes because of deprecation. If the API of a filter changes, the name has to change.
 
 ## Install
 
@@ -21,12 +21,21 @@ components:
     escape: require("vue-filters/escape")
 ```
 ## List of mixins
-| Name | description |
-| ---: |  ------- |
-| escape | turns `&`,`<` and `>` to `&amp;`, `&lt;` and `&gt;` (usage [raw html](http://vuejs.org/guide/syntax.html#Raw_HTML))|
-| nl2br | turns `\n` to `<br>` (usage [raw html](http://vuejs.org/guide/syntax.html#Raw_HTML))|
+| Name | operates on| description |
+| ---: | ------ |  ------- |
+| escape | string | turns `&`,`<` and `>` to `&amp;`, `&lt;` and `&gt;` (usage [raw html](http://vuejs.org/guide/syntax.html#Raw_HTML))|
+| nl2br |string | turns `\n` to `<br>` (usage [raw html](http://vuejs.org/guide/syntax.html#Raw_HTML))|
+| byObject | array, object | only entries in the array matching all keys and values of the provided object will be included|
 
-
+## Detailed usage
+### byObject
+```html
+<div v-for="entry in array | byObject {name:'john',age:'24'}">
+// dynamic
+<div v-for="entry in array | byObject {name:{{filtername}},age:{{filterage}}}">
+// or just pass an object from your Vue instance
+<div v-for="entry in array | byObject someFilterObject">
+```
 
 ## Develop
 Clone rep
