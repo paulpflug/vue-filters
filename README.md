@@ -21,10 +21,10 @@ components:
     escape: require("vue-filters/escape")
 ```
 ## List of mixins
-| Name | operates on| description |
+| Name | arguments| description |
 | ---: | ------ |  ------- |
 | escape | string | turns `&`,`<` and `>` to `&amp;`, `&lt;` and `&gt;` (usage [raw html](http://vuejs.org/guide/syntax.html#Raw_HTML))|
-| nl2br |string | turns `\n` to `<br>` (usage [raw html](http://vuejs.org/guide/syntax.html#Raw_HTML))|
+| nl2br | string | turns `\n` to `<br>` (usage [raw html](http://vuejs.org/guide/syntax.html#Raw_HTML))|
 | byObject | array, object | only entries in the array matching all keys and values of the provided object will be included|
 | notPrevented | function | only call function when `event.defaultPrevented` is false |
 
