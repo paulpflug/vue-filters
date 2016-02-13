@@ -5,9 +5,9 @@ comp =
     escape: require "../src/escape.coffee"
   data: ->
     text: "text&<br>text"
-compEl = document.createElement("comp")
-document.body.appendChild(compEl)
 app = new Vue
+  replace: false
+  template: "<comp></comp>"
   el: "body"
   components:
     comp: comp

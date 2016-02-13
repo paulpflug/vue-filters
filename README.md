@@ -26,6 +26,7 @@ components:
 | escape | string | turns `&`,`<` and `>` to `&amp;`, `&lt;` and `&gt;` (usage [raw html](http://vuejs.org/guide/syntax.html#Raw_HTML))|
 | nl2br |string | turns `\n` to `<br>` (usage [raw html](http://vuejs.org/guide/syntax.html#Raw_HTML))|
 | byObject | array, object | only entries in the array matching all keys and values of the provided object will be included|
+| notPrevented | function | only call function when `event.defaultPrevented` is false |
 
 ## Detailed usage
 ### byObject
@@ -35,6 +36,14 @@ components:
 <div v-for="entry in array | byObject {name:{{filtername}},age:{{filterage}}}">
 // or just pass an object from your Vue instance
 <div v-for="entry in array | byObject someFilterObject">
+```
+
+### notPrevented
+read: https://css-tricks.com/dangers-stopping-event-propagation/
+```html
+// when clicked on the child, parentClick won't be called
+<div @click="parentClick | notPrevented"><div @click.prevent="childClick"></div></div>
+
 ```
 
 ## Develop

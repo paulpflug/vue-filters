@@ -2,22 +2,22 @@
   var byObject;
 
   byObject = function(array, options) {
-    var entry, found, i, key, len, result, toFind, value;
+    var entry, found, i, key, len, result, value;
     result = [];
-    toFind = Object.keys(options).length;
-    if (!toFind) {
+    if (!(Object.keys(options).length > 1)) {
       return array;
     }
     for (i = 0, len = array.length; i < len; i++) {
       entry = array[i];
-      found = 0;
+      found = true;
       for (key in options) {
         value = options[key];
-        if (entry[key] === value) {
-          found += 1;
+        if (entry[key] !== value) {
+          found = false;
+          break;
         }
       }
-      if (found === toFind) {
+      if (found) {
         result.push(entry);
       }
     }

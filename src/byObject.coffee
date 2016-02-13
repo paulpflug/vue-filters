@@ -1,14 +1,13 @@
 # out: ../byObject.js
 byObject = (array, options) ->
   result = []
-  toFind = Object.keys(options).length
-  return array unless toFind
+  return array unless Object.keys(options).length > 1
   for entry in array
-    found = 0
+    found = true
     for key,value of options
-      if entry[key] == value
-        found += 1
-    if found == toFind
-      result.push entry
+      if entry[key] != value
+        found = false
+        break
+    result.push entry if found
   return result
 module.exports = byObject

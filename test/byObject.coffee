@@ -10,12 +10,12 @@ comp =
       {name: "test3", name2: "test3", name3:"test"}
     ]
     filter: {name: "test1", name2: "test"}
-compEl = document.createElement("comp")
-document.body.appendChild(compEl)
 app = new Vue
+  replace: false
+  template: "<comp></comp>"
   el: "body"
   components:
     comp: comp
 describe "byObject", ->
-  it 'should escape <,& and >', ->
+  it 'should filter by given object', ->
     app.$children[0].$el.should.have.html "<li>test1testtest</li>"
