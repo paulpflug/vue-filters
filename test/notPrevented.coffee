@@ -1,4 +1,3 @@
-Vue = require "vue"
 comp1 =
   template: "<div @click='onClick | notPrevented'></div>"
   data: ->
@@ -27,17 +26,9 @@ comp3 =
       @click()
   filters:
     notPrevented: require "../src/notPrevented.coffee"
-app = new Vue
-  replace: false
-  template: "<comp1></comp1><comp2></comp2><comp3></comp3>"
-  el: "body"
-  components:
-    comp1: comp1
-    comp2: comp2
-    comp3: comp3
-comp1 = app.$children[0]
-comp2 = app.$children[1]
-comp3 = app.$children[2]
+comp1 = loadComp(comp1)
+comp2 = loadComp(comp2)
+comp3 = loadComp(comp3)
 describe "notPrevented", ->
   it 'should call the event', ->
     comp1.click = chai.spy()
