@@ -27,6 +27,7 @@ components:
 | nl2br | string | turns `\n` to `<br>` (usage [raw html](http://vuejs.org/guide/syntax.html#Raw_HTML))|
 | byObject | array, object | only entries in the array matching all keys and values of the provided object will be included|
 | notPrevented | function | only call function when `event.defaultPrevented` is false |
+| prevent | function | call function and call `event.preventDefault()` afterwards |
 
 ## Detailed usage
 ### byObject
@@ -44,6 +45,15 @@ read: https://css-tricks.com/dangers-stopping-event-propagation/
 // when clicked on the child, parentClick won't be called
 <div @click="parentClick | notPrevented"><div @click.prevent="childClick"></div></div>
 
+```
+
+### prevent
+read: https://css-tricks.com/dangers-stopping-event-propagation/
+```html
+// won't work
+<div @click.prevent="onClick | notPrevented"></div>
+// will work
+<div @click="onClick | notPrevented | prevent"></div>
 ```
 
 ## Develop
