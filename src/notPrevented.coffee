@@ -1,6 +1,6 @@
-# out: ../prevent.js
-prevent = (fn) ->
+# out: ../notPrevented.js
+notPrevented = (fn) ->
   return (e) ->
+    return if e.defaultPrevented
     fn(e)
-    e.preventDefault()
-module.exports = prevent
+module.exports = notPrevented
