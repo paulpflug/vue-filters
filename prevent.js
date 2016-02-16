@@ -1,13 +1,15 @@
 (function() {
-  var prevent;
+  var notPrevented;
 
-  prevent = function(fn) {
+  notPrevented = function(fn) {
     return function(e) {
-      fn(e);
-      return e.preventDefault();
+      if (e.defaultPrevented) {
+        return;
+      }
+      return fn(e);
     };
   };
 
-  module.exports = prevent;
+  module.exports = notPrevented;
 
 }).call(this);
