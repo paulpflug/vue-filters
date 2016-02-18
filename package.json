@@ -1,7 +1,7 @@
 {
   "name": "vue-filters",
   "description": "collection of filters for vue",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "https://github.com/paulpflug/",
   "author": {
     "name": "Paul Pflugradt",
@@ -43,7 +43,7 @@
   "scripts": {
     "build:coffee": "coffee --no-header --compile --output . src/*.coffee",
     "build:webpack": "webpack",
-    "build":"run-npm build:*",
+    "build": "run-npm build:*",
     "watch": "karma start --browsers Chrome --auto-watch --reporters spec",
     "test": "karma start --single-run",
     "preversion": "npm test",
