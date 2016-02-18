@@ -1,24 +1,26 @@
 # vue-filters
 
-A collection of filters for vue.  
-Designed for [**webpack**](https://webpack.github.io/) workflows.
+A collection of filters for vue.
 
 ## Policy
 
 all sorts of filters can be submitted. There will be no removes because of deprecation. If the API of a filter changes, the name has to change.
 
 ## Install
-
 ```sh
 npm install --save-dev vue-filters
-
 ```
+or include `bundle.js`
 ## Usage
 ```coffee
 ## whithin your module
 components:
   filters:
     escape: require("vue-filters/escape")
+# if you have used the bundle.js
+components:
+  filters:
+    escape: window.vueFilters.escape
 ```
 ## List of mixins
 | Name | arguments| description |
