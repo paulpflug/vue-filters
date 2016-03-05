@@ -22,7 +22,7 @@ components:
   filters:
     escape: window.vueFilters.escape
 ```
-## List of mixins
+## List of filters
 | Name | arguments| description |
 | ---: | ------ |  ------- |
 | escape | string | turns `&`,`<` and `>` to `&amp;`, `&lt;` and `&gt;` (usage [raw html](http://vuejs.org/guide/syntax.html#Raw_HTML))|
