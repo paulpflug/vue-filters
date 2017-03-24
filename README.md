@@ -1,3 +1,5 @@
+# DEPRECATED
+
 # vue-filters
 
 A collection of filters for vue.

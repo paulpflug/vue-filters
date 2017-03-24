@@ -1,8 +1,8 @@
 # out: ../byObject.js
 byObject = (array, options) ->
   result = []
-  console.log options
-  return array if Object.keys(options).length == 0
+  if not options? or Object.keys(options).length == 0
+    return array
   for entry in array
     found = true
     for key,value of options
@@ -10,6 +10,5 @@ byObject = (array, options) ->
         found = false
         break
     result.push entry if found
-  console.log result
   return result
 module.exports = byObject
